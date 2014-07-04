@@ -69,10 +69,10 @@ class Remote():
 
         sock.close()
         if first_only:
-            raise NoTVFound
+            raise Remote.NoTVFound
         else:
             if len(addresses) == 0:
-                raise NoTVFound
+                raise Remote.NoTVFound
             else:
                 return addresses
 
