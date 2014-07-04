@@ -16,7 +16,7 @@ If you have only one, it'll be faster to use the `first_only` parameter.
 address = Remote.find_tvs(first_only=True)
 ```
 
-You will need a pairing key, if you already know it you can pass it to the `Remote` class' `__init__` other wise you can reate your remote control instance and it'll request it from the TV. You can then provide this pairing key using the `set_pairing_key` method.
+You will need a pairing key, if you already know it you can pass it to the `Remote` class' `__init__` otherwise you can create your remote control instance and it'll ask the TV to display it onscreen. You can then provide this pairing key using the `set_pairing_key` method.
 
 ```
 remote = Remote(address)
@@ -34,9 +34,9 @@ commands = [Remote.HOME, Remote.EXIT, Remote.MENU]
 remote.send_multiple(commands)
 ```
 
-An optional `delay` parameter can be provided to `send_multiple` this will the amount of seconds the control will wait between commands. N.B. Sending commands too fast can cause some of them to be ignored.
+An optional `delay` parameter can be provided to `send_multiple`; this will the amount of seconds the control will wait between commands. N.B. Sending commands too fast can cause some of them to be ignored.
 
-A reference of all the shortcut commands available are below, you are free to send any integer in `send_command` but be wary if you don't know what your are doing.
+A reference of all the shortcut commands available are below, you are free to send any integer with `send_command` but be careful if you don't know what your are doing, as some commands can force the TV in service modes that can be tricky to get back out of.
 
 ```
     POWER = 1
