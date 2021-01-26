@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import re
 import time
 import socket
-import httplib
+import http
 
 from xml.etree import ElementTree
 
@@ -47,11 +47,11 @@ class Remote():
                   'ST: urn:schemas-upnp-org:device:MediaRenderer:1\r\n\r\n'
 
         sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        sock.settimeout(1)
+        sock.settimeout(5)
 
         addresses = []
         while attempts > 0:
-            sock.sendto(request, ('239.255.255.250', 1900))
+            sock.sendto(request.encode('UTF-8'), ('239.255.255.250', 1900))
             try:
                 response, address = sock.recvfrom(512)
             except:
@@ -89,11 +89,11 @@ class Remote():
         POST the XML request to the configured TV and parse the response
         """
 
-        http = httplib.HTTPConnection(self.ip_address, port=8080)
+        connection = http.client.HTTPConnection(self.ip_address, port=8080)
         headers = {'Content-Type': 'application/atom+xml'}
         headers.update(extra_headers)
-        http.request("POST", endpoint, content, headers=headers)
-        response = http.getresponse()
+        connection.request("POST", endpoint, content, headers=headers)
+        response = connection.getresponse()
         tree = ElementTree.XML(response.read())
         return tree
 
