@@ -3,7 +3,7 @@ python-lgtv
 
 Simple class for pairing with and controlling your 2012-2015 LG TV with python. 
 
-**This library targets TVs running the older NetCast platform, it does not support WebOS LG TVs. Please see https://github.com/klattimer/LGWebOSRemote if you have a WebOS based device.**
+**This library targets TVs running the older Netcast/SmartTV platform, it does not support WebOS LG TVs. Please see https://github.com/klattimer/LGWebOSRemote if you have a WebOS based device.**
 
 You can find all TVs on the network using the `find_tvs` class method.
 
