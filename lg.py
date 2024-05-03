@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import re
 import time
 import socket
-import http
+import http.client
 
 from xml.etree import ElementTree
 
