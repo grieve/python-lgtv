@@ -58,7 +58,7 @@ class Remote():
                 attempts -= 1
                 continue
 
-            if re.search('LG', response):
+            if re.search('LG', response.decode('utf-8')):
                 if first_only:
                     sock.close()
                     return address[0]
